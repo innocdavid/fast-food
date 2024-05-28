@@ -1,3 +1,5 @@
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+
 # FastFoodExpress
 
 Welcome to **FastFoodExpress**, a fast-food ordering app designed to streamline your fast-food experience. With this app, users can browse menus, place orders, and receive notifications for order updates—all from the comfort of their mobile devices.
@@ -25,10 +27,13 @@ Welcome to **FastFoodExpress**, a fast-food ordering app designed to streamline 
 ## Installation
 
 ### Prerequisites
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 - [Node.js](https://nodejs.org/) (v14 or higher)
 - [npm](https://www.npmjs.com/)
 - [MongoDB](https://www.mongodb.com/)
+- [Typescript](https://www.typescript.com/)
+- [shadcn](https://shadcn.com/)
 
 ### Steps
 
