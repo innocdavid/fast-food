@@ -3,6 +3,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import FormDetailsSection from "./FormDetailsSection";
+import { Separator } from "@/components/ui/separator";
+import FormCuisinesSection from "./FormCuisinesSection";
+import FormMenuSection from "./FormMenuSection";
+import FormImageSection from "./FormImageSection";
+import LoadingButton from "@/components/LoadingButton";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
     restaurantName: z.string({
@@ -59,6 +65,12 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
                 className="space-y-8 bg-gray-50 p-10 rounded-lg"
             >
                 <FormDetailsSection />
+                <Separator />
+                <FormCuisinesSection />
+                <Separator />
+                <FormMenuSection />
+                <FormImageSection />
+                {isLoading ? <LoadingButton /> : <Button type="submit">Submit</Button>}
             </form>
         </Form>
     );
