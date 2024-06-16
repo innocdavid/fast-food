@@ -1,28 +1,33 @@
 import { Checkbox } from "@/components/ui/checkbox";
-import { FormControl, FormItem } from "@/components/ui/form";
+import { FormControl, FormItem, FormLabel } from "@/components/ui/form";
 import { ControllerRenderProps, FieldValues } from "react-hook-form";
 
 type Props = {
-    cusine: string;
-    field: ControllerRenderProps<FieldValues, "cuisines">;
+  cuisine: string;
+  field: ControllerRenderProps<FieldValues, "cuisines">;
 };
 
-const CusineCheckbox = ({ cusine, field }: Props) => {
-    return (
-        <FormItem className="flex flex-row items-center space-x-1 space-y-0 mt-2">
-            <FormControl>
-                <Checkbox 
-                    className="bg-white"
-                    checked={field.value.includes(cusine)}
-                    onCheckedChange={(checked) => {
-                        if (checked) {
-                            field.
-                        }
-                    }}
-                />
-            </FormControl>
-        </FormItem>
-    );
+const CuisineCheckbox = ({ cuisine, field }: Props) => {
+  return (
+    <FormItem className="flex flex-row items-center space-x-1 space-y-0 mt-2">
+        <FormControl>
+        <Checkbox
+            className="bg-white"
+            checked={field.value ? field.value.includes(cuisine) : false}
+            onCheckedChange={(checked) => {
+            if (checked) {
+                field.onChange([...(field.value || []), cuisine]);
+            } else {
+                field.onChange(
+                    (field.value || []).filter((value: string) => value !== cuisine)
+                );
+            }
+            }}
+        />
+        </FormControl>
+        <FormLabel className="text-sm font-normal">{cuisine}</FormLabel>
+    </FormItem>
+  );
 };
 
-export default CusineCheckbox;
+export default CuisineCheckbox;
