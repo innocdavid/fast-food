@@ -28,7 +28,7 @@ const formSchema = z.object({
         required_error: "estimated delivery time is required",
         invalid_type_error: "must be a valid number",
     }),
-    cusines: z.array(z.string()).nonempty({
+    cuisines: z.array(z.string()).nonempty({
         message: "please select at least one item",
     }),
     menuItems: z.array(z.object({
