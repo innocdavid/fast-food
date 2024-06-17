@@ -13,14 +13,14 @@ const CuisineCheckbox = ({ cuisine, field }: Props) => {
       <FormControl>
         <Checkbox
           className="bg-white"
-          checked={field.value ? field.value.includes(cuisine) : false}
+          checked={field.value?.includes(cuisine)}
           onCheckedChange={(checked) => {
             console.log('checked', checked)
             if (checked) {
               field.onChange([...field.value || [], cuisine]);
             } else {
               field.onChange(
-                (field.value || []).filter((value: string) => value !== cuisine)
+                field.value.filter((value: string) => value !== cuisine)
               );
             }
           }}
