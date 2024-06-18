@@ -14,6 +14,13 @@ const upload = multer({
     }
 });
 
+router.get(
+    '/', 
+    jwtCheck,
+    jwtParse,
+    MyRestaurantController.getMyRestaurant
+);
+
 router.post(
     '/', 
     upload.single('imageFile'),
