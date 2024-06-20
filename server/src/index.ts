@@ -3,6 +3,7 @@ import mongoose, { mongo } from 'mongoose';
 import { v2 as cloudinary } from 'cloudinary';
 import myUserRoute from './routes/MyUserRoute';
 import myRestaurantRoute from './routes/MyRestaurantRoute';
+import restaurantRoute from './routes/RestaurantRoute';
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -27,6 +28,7 @@ app.use(cors());
 
 app.use('/api/my/user', myUserRoute);
 app.use('/api/my/restaurant', myRestaurantRoute);
+app.use('/api/restaurant', restaurantRoute);
 
 app.listen(8000, () => {
     console.log('server running on localhost:8000');
