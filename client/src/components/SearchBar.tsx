@@ -19,19 +19,29 @@ type Props = {
   onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
   onReset?: () => void;
+  searchQuery?: string;
 };
 
-const SearchBar = ({ onSubmit, onReset, placeHolder, }: Props) => {
+const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
   const form = useForm<SearchForm>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      searchQuery,
+    },
   });
 
-const handleButtonReset = () => {
+  useEffect(() => {
+    form.reset({ searchQuery });
+  }, [form, searchQuery]);
+
+  const handleReset = () => {
     form.reset({
       searchQuery: "",
     });
 
-    if (onReset) onReset();
+    if (onReset) {
+      onReset();
+    }
   };
 
   return (
@@ -63,16 +73,14 @@ const handleButtonReset = () => {
           )}
         />
 
-        { form.formState.isDirty && (
         <Button
-            onClick={handleButtonReset}
-            type="button"
-            variant="outline"
-            className="rounded-full"
+          onClick={handleReset}
+          type="button"
+          variant="outline"
+          className="rounded-full"
         >
-            Clear
+          Reset
         </Button>
-        )}
         <Button type="submit" className="rounded-full bg-orange-500">
           Search
         </Button>
