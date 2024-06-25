@@ -4,6 +4,7 @@ import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultsCard";
 import SearchResultsInfo from "@/components/SearchResultsInfo";
+import SortOptionDropdown from "@/components/SortOptionDropdown";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -11,6 +12,7 @@ export type SearchState = {
     searchQuery: string;
     page: number;
     selectedCuisines: string[];
+    sortOption: string;
 };
 
 const SearchPage = () => {
@@ -19,6 +21,7 @@ const SearchPage = () => {
         searchQuery: "",
         page: 1,
         selectedCuisines: [],
+        sortOption: "bestMatch",
     });
 
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -40,6 +43,14 @@ const SearchPage = () => {
             page: 1,
         }))
     };
+
+    const setSortOption = (sortOption: string) => {
+        setSearchState((prevState) => ({
+            ...prevState,
+            sortOption,
+            page: 1,
+        }))
+    }
 
     const setPage = (page: number) => {
         setSearchState((prevState) => ({
@@ -77,7 +88,17 @@ const SearchPage = () => {
                     placeHolder="Search by cuisine or restauant name"
                     onReset={resetSearch}
                 />
-                <SearchResultsInfo totalCount={results.pagination.totalCount} city={city} />
+                <div className="flex justify-between flex-col gap-3 lg:flex-row">
+                    <SearchResultsInfo 
+                        totalCount={results.pagination.totalCount} 
+                        city={city} 
+                    />
+                    <SortOptionDropdown
+                        sortOption={searchState.sortOption}
+                        onChange={(value) => setSortOption(value)} 
+                    />
+                </div>
+
                 {results.data.map((restaurant) => (
                     <SearchResultCard restaurant={restaurant}/>
                 ))}
