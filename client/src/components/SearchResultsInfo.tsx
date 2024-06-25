@@ -17,7 +17,6 @@ const SearchResultsInfo = ({ totalCount, city }: Props) => {
                     Change Location
                 </Link>
             </span>
-            INSERT ANOTHER COMPONENT HERE
         </div>
     );
 };
