@@ -1,9 +1,10 @@
 import { useGetRestaurantDetails } from "@/api/RestaurantApi";
+import CheckoutButton from "@/components/CheckoutButton";
 import OrderSummary from "@/components/OrderSummary";
 import RestaurantDetailsInfo from "@/components/RestaurantDetailsInfo";
 import RestaurantDetailsMenuItem from "@/components/RestaurantDetailsMenuItem";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Card } from "@/components/ui/card";
+import { Card, CardFooter } from "@/components/ui/card";
 import { MenuItem } from "@/types";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -87,6 +88,9 @@ const RestaurantDetailsPage = () => {
                             cartItems={cartItems} 
                             removeFromCart={removeFromCart}
                         />
+                        <CardFooter>
+                            <CheckoutButton />
+                        </CardFooter>
                     </Card>
                 </div>
             </div>
