@@ -6,6 +6,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import ProtectedRoutes from './auth/ProtectedRoutes';
 import ManageRestaurantPage from './pages/ManageRestaurantPage';
 import SearchPage from './pages/SearchPage';
+import RestaurantDetailsPage from './pages/RestaurantDetailsPage';
 
 const AppRoutes = () => {
     return (
@@ -23,6 +24,14 @@ const AppRoutes = () => {
                 element={
                     <Layout showHero={false}>
                         <SearchPage />
+                    </Layout>
+                }
+            />
+            <Route 
+                path='/details/:restaurantId'
+                element={
+                    <Layout showHero={false}>
+                        <RestaurantDetailsPage />
                     </Layout>
                 }
             />
