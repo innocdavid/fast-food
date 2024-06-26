@@ -1,4 +1,5 @@
 import { useGetRestaurantDetails } from "@/api/RestaurantApi";
+import RestaurantDetailsInfo from "@/components/RestaurantDetailsInfo";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useParams } from "react-router-dom";
 
@@ -16,6 +17,11 @@ const RestaurantDetailsPage = () => {
                     className="rounded-md object-cover h-full w-full"
                 />
             </AspectRatio>
+            <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
+                <div className="flex flex-col gap-4">
+                    <RestaurantDetailsInfo restaurant={restaurant} />
+                </div>
+            </div>
         </div>
     );
 };
