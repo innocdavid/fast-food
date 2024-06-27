@@ -5,6 +5,7 @@ import RestaurantDetailsInfo from "@/components/RestaurantDetailsInfo";
 import RestaurantDetailsMenuItem from "@/components/RestaurantDetailsMenuItem";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardFooter } from "@/components/ui/card";
+import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { MenuItem } from "@/types";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -71,7 +72,11 @@ const RestaurantDetailsPage = () => {
 
           return updatedCartItems;
         });
-      };
+    };
+
+    const onCheckout = (userFormData: UserFormData) => {
+        console.log("userFormData", userFormData)
+    }
 
     if (isLoading || !restaurant) return <span>Loading......</span>
 
@@ -102,7 +107,10 @@ const RestaurantDetailsPage = () => {
                             removeFromCart={removeFromCart}
                         />
                         <CardFooter>
-                            <CheckoutButton />
+                            <CheckoutButton 
+                                disabled={cartItems.length === 0}
+                                onCheckout={onCheckout}
+                            />
                         </CardFooter>
                     </Card>
                 </div>
