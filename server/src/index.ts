@@ -4,6 +4,7 @@ import { v2 as cloudinary } from 'cloudinary';
 import myUserRoute from './routes/MyUserRoute';
 import myRestaurantRoute from './routes/MyRestaurantRoute';
 import restaurantRoute from './routes/RestaurantRoute';
+import orderRoute from './routes/OrderRoute';
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -29,6 +30,7 @@ app.use(cors());
 app.use('/api/my/user', myUserRoute);
 app.use('/api/my/restaurant', myRestaurantRoute);
 app.use('/api/restaurant', restaurantRoute);
+app.use('/api/orders', orderRoute);
 
 app.listen(8000, () => {
     console.log('server running on localhost:8000');
