@@ -16,6 +16,7 @@ type CheckoutSessionRequest = {
         name: string;
         addressLine1: string;
         city: string;
+        country: string;
     };
     restaurantId: string;
 };
@@ -62,7 +63,7 @@ const createLineItems = (
 
         const line_item: Stripe.Checkout.SessionCreateParams.LineItem = {
             price_data: {
-                currency: "ugx",
+                currency: "usd",
                 unit_amount: menuItem.price,
                 product_data: {
                     name: menuItem.name,
@@ -92,7 +93,7 @@ const createSession = async (
             type: "fixed_amount",
             fixed_amount: {
               amount: deliveryPrice,
-              currency: "ugx",
+              currency: "usd",
             },
           },
         },
@@ -103,7 +104,7 @@ const createSession = async (
         restaurantId,
       },
       success_url: `${FRONTEND_URL}/order-status?success=true`,
-      cancel_url: `${FRONTEND_URL}/detail/${restaurantId}?cancelled=true`,
+      cancel_url: `${FRONTEND_URL}/details/${restaurantId}?cancelled=true`,
     });
   
     return sessionData;
