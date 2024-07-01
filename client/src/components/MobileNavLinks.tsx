@@ -7,6 +7,13 @@ const MobileNavLinks = () => {
 
     return (
         <>
+
+            <Link
+                to="/order-status"
+                className="flex bg-white items-center hover:text-orange-500"
+            >
+                Order Status
+            </Link>
             <Link 
                 to="/manage-restaurant"
                 className="flex bg-white items-center hover:text-orange-500"
