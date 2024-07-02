@@ -21,6 +21,13 @@ router.get(
     MyRestaurantController.getMyRestaurant
 );
 
+router.get(
+    '/orders',
+    jwtCheck,
+    jwtParse,
+    MyRestaurantController.getMyRestaurantOrders
+)
+
 router.post(
     '/', 
     upload.single('imageFile'),
